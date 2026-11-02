@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="My IDM - A powerful download manager for Windows.">
+  <link rel="icon" type="image/png" href="./assets/app-icon.png">
   <title>My IDM - Internet Download Manager</title>
   <style>
     * { box-sizing: border-box; }
@@ -21,6 +22,21 @@
       align-items: center;
       border-bottom: 1px solid #263247;
     }
+    .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 10px;
+}
     .logo { font-size: 25px; font-weight: bold; color: #38bdf8; }
     nav a { color: #cbd5e1; margin-left: 22px; text-decoration: none; }
     .hero {
@@ -67,7 +83,10 @@
 </head>
 <body>
   <header>
-    <div class="logo">My IDM</div>
+    <div class="logo">
+  <img src="./assets/app-icon.png" alt="My IDM Logo">
+  <span>My IDM</span>
+</div>
     <nav>
       <a href="#features">Features</a>
       <a href="#about">About</a>
