@@ -247,32 +247,59 @@
     }
 
     /* Screenshot area */
-    .showcase {
-      background: #0d182a;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+   /* Screenshot Gallery */
+.showcase {
+  background: #0d182a;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
 
-    .screenshot-placeholder {
-      max-width: 850px;
-      min-height: 300px;
-      margin: auto;
-      border: 1px dashed #45617f;
-      border-radius: 16px;
-      background: var(--surface);
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 30px;
-      color: var(--muted);
-    }
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
 
-    .screenshot-placeholder strong {
-      display: block;
-      color: white;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
+.screenshot-card {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition: .25s;
+}
+
+.screenshot-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(57,197,245,.5);
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+}
+
+.screenshot-card a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #080f1e;
+  padding: 10px;
+}
+
+.screenshot-caption {
+  padding: 15px 18px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+@media(max-width: 750px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
     /* Download */
     .download-card {
@@ -492,27 +519,66 @@
   </section>
 
   <!-- SCREENSHOTS -->
+ 
+  <!-- SCREENSHOTS -->
   <section class="showcase" id="screenshots">
     <div class="container">
 
       <div class="section-heading">
         <h2>Explore My IDM</h2>
         <p>
-          Take a look at the My IDM application interface.
+          Take a closer look at the My IDM application interface.
         </p>
       </div>
 
-      <div class="screenshot-placeholder">
-        <div>
-          <strong>My IDM Screenshots</strong>
-          Add your real application screenshots here.
-          <br>
-          We will create a beautiful screenshot gallery next.
-        </div>
-      </div>
+      <div class="screenshot-grid">
 
+        <div class="screenshot-card">
+          <a href="./assets/my-idm%201.png" target="_blank">
+            <img src="./assets/my-idm%201.png" alt="My IDM Screenshot 1" loading="lazy">
+          </a>
+          <div class="screenshot-caption">My IDM – Main Interface</div>
+        </div>
+
+        <div class="screenshot-card">
+          <a href="./assets/my-idm%202.png" target="_blank">
+            <img src="./assets/my-idm%202.png" alt="My IDM Screenshot 2" loading="lazy">
+          </a>
+          <div class="screenshot-caption">My IDM – Screenshot 2</div>
+        </div>
+
+        <div class="screenshot-card">
+          <a href="./assets/my-idm%203.png" target="_blank">
+            <img src="./assets/my-idm%203.png" alt="My IDM Screenshot 3" loading="lazy">
+          </a>
+          <div class="screenshot-caption">My IDM – Screenshot 3</div>
+        </div>
+
+        <div class="screenshot-card">
+          <a href="./assets/my-idm%204.png" target="_blank">
+            <img src="./assets/my-idm%204.png" alt="My IDM Screenshot 4" loading="lazy">
+          </a>
+          <div class="screenshot-caption">My IDM – Screenshot 4</div>
+        </div>
+
+        <div class="screenshot-card">
+          <a href="./assets/my-idm%205.png" target="_blank">
+            <img src="./assets/my-idm%205.png" alt="My IDM Screenshot 5" loading="lazy">
+          </a>
+          <div class="screenshot-caption">My IDM – Screenshot 5</div>
+        </div>
+
+        <div class="screenshot-card">
+          <a href="./assets/my-idm%206.png" target="_blank">
+            <img src="./assets/my-idm%206.png" alt="My IDM Screenshot 6" loading="lazy">
+          </a>
+          <div class="screenshot-caption">My IDM – Screenshot 6</div>
+        </div>
+
+      </div>
     </div>
   </section>
+
 
   <!-- DOWNLOAD -->
   <section id="download">
