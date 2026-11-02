@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My IDM - A powerful download manager for Windows.">
+  <title>My IDM - Internet Download Manager</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: #f8fafc;
+    }
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #263247;
+    }
+    .logo { font-size: 25px; font-weight: bold; color: #38bdf8; }
+    nav a { color: #cbd5e1; margin-left: 22px; text-decoration: none; }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #10264a, #0b1220);
+    }
+    .hero h1 { font-size: 48px; margin-bottom: 15px; }
+    .hero p { color: #cbd5e1; font-size: 18px; line-height: 1.7; }
+    .download {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 16px 30px;
+      background: #0284c7;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    section { padding: 55px 8%; text-align: center; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .feature {
+      background: #172338;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    .feature p { color: #cbd5e1; line-height: 1.6; }
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid #263247;
+    }
+    @media(max-width: 600px) {
+      .hero h1 { font-size: 34px; }
+      nav a { margin-left: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">My IDM</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Download Smarter with My IDM</h1>
+      <p>A powerful and easy-to-use download manager for Windows.</p>
+      <a class="download"
+         href="https://github.com/shenuinfo7/My-IDM/releases/latest/download/My.Internet.Download.Manager.Setup.1.0.0.exe">
+        Download for Windows
+      </a>
+      <p>Version 1.0.0 | Windows</p>
+    </div>
+
+    <section id="features">
+      <h2>Features</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Fast Downloads</h3>
+          <p>Manage your downloads with My IDM.</p>
+        </div>
+        <div class="feature">
+          <h3>Easy to Use</h3>
+          <p>A simple and user-friendly interface.</p>
+        </div>
+        <div class="feature">
+          <h3>Download Control</h3>
+          <p>Manage and organize your downloads.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About My IDM</h2>
+      <p>My IDM is a Windows download manager designed to make downloading easier.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 My IDM. All rights reserved.
+  </footer>
+</body>
+</html>
