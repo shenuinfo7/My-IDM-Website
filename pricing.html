@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choose your My IDM license plan. Monthly, 6 months, yearly and lifetime licenses.">
+  <meta name="theme-color" content="#080f1e">
+
+  <title>My IDM - License Pricing</title>
+  <link rel="icon" type="image/png" href="./assets/app-icon.png">
+
+  <style>
+    :root {
+      --bg: #080f1e;
+      --surface: #111d32;
+      --surface2: #172640;
+      --blue: #168cf0;
+      --cyan: #39c5f5;
+      --text: #f5f8ff;
+      --muted: #a8b6ca;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,15,30,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: white;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--cyan); }
+
+    .hero {
+      padding: 90px 0 55px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(20,130,235,.22), transparent 60%),
+        linear-gradient(130deg, #0b1930, #080f1e);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 15px;
+      border: 1px solid rgba(57,197,245,.3);
+      background: rgba(57,197,245,.08);
+      color: var(--cyan);
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin: 0 0 18px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #45caff, #168cf0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .pricing-section {
+      padding: 55px 0 90px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 29px 23px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: .25s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(57,197,245,.5);
+      box-shadow: 0 15px 40px rgba(0,0,0,.2);
+    }
+
+    .price-card.popular {
+      border: 2px solid var(--blue);
+      background: linear-gradient(160deg, #152e4d, #111d32);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      padding: 5px 15px;
+      background: linear-gradient(90deg, #087de2, #22b5ed);
+      color: white;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .plan-name {
+      color: var(--cyan);
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .price {
+      font-size: 37px;
+      font-weight: 800;
+      margin: 12px 0 0;
+      letter-spacing: -1px;
+    }
+
+    .duration {
+      color: var(--muted);
+      font-size: 13px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0;
+      flex: 1;
+    }
+
+    .features li {
+      color: #d4deec;
+      font-size: 13px;
+      margin-bottom: 13px;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: var(--cyan);
+      font-weight: bold;
+      margin-right: 9px;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 13px 10px;
+      border-radius: 9px;
+      background: linear-gradient(100deg, #087de2, #22b5ed);
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: not-allowed;
+      opacity: .85;
+    }
+
+    .popular .buy-btn {
+      background: linear-gradient(100deg, #087de2, #22b5ed);
+    }
+
+    .payment-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 30px;
+    }
+
+    .payment-methods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .payment-methods span {
+      padding: 8px 17px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 13px;
+      color: #dbe7f6;
+    }
+
+    .benefits {
+      padding: 75px 0;
+      background: #0d182a;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 4vw, 37px);
+      margin: 0 0 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 14px;
+    }
+
+    .benefit-card .icon {
+      font-size: 27px;
+    }
+
+    .benefit-card h3 {
+      margin: 12px 0 7px;
+    }
+
+    .benefit-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .faq {
+      padding: 75px 0;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 17px 20px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 55px 20px;
+      background: linear-gradient(145deg, #132c4c, #101c30);
+      border: 1px solid rgba(57,197,245,.2);
+      border-radius: 18px;
+      margin-bottom: 75px;
+    }
+
+    .contact h2 {
+      margin: 0 0 10px;
+    }
+
+    .contact p {
+      color: var(--muted);
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 11px 22px;
+      background: var(--blue);
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-links a:hover { color: var(--cyan); }
+
+    @media(max-width: 950px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 18px;
+      }
+    }
+
+    @media(max-width: 650px) {
+      .navbar {
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero { padding: 65px 0 40px; }
+
+      .pricing-grid,
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-section,
+      .benefits,
+      .faq {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a class="brand" href="./index.html">
+      <img src="./assets/app-icon.png" alt="My IDM Logo">
+      <span>My IDM</span>
+    </a>
+
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./index.html#features">Features</a>
+      <a href="./index.html#screenshots">Screenshots</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">MY IDM LICENSE PLANS</div>
+
+      <h1>
+        Choose Your <span class="gradient">License</span>
+      </h1>
+
+      <p>
+        Unlock My IDM with a genuine license.
+        Choose a plan that works best for you.
+      </p>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+
+      <div class="pricing-grid">
+
+        <!-- Monthly -->
+        <div class="price-card">
+          <div class="plan-name">Monthly</div>
+          <div class="price">৳99</div>
+          <div class="duration">Valid for 1 month</div>
+
+          <ul class="features">
+            <li>Genuine My IDM License</li>
+            <li>1 Month Validity</li>
+            <li>Download Manager Access</li>
+            <li>License Support</li>
+          </ul>
+
+          <div class="buy-btn">Coming Soon</div>
+        </div>
+
+        <!-- 6 Months -->
+        <div class="price-card">
+          <div class="plan-name">6 Months</div>
+          <div class="price">৳399</div>
+          <div class="duration">Valid for 6 months</div>
+
+          <ul class="features">
+            <li>Genuine My IDM License</li>
+            <li>6 Months Validity</li>
+            <li>Download Manager Access</li>
+            <li>License Support</li>
+          </ul>
+
+          <div class="buy-btn">Coming Soon</div>
+        </div>
+
+        <!-- Yearly -->
+        <div class="price-card popular">
+          <div class="popular-tag">MOST POPULAR</div>
+          <div class="plan-name">Yearly</div>
+          <div class="price">৳699</div>
+          <div class="duration">Valid for 1 year</div>
+
+          <ul class="features">
+            <li>Genuine My IDM License</li>
+            <li>1 Year Validity</li>
+            <li>Download Manager Access</li>
+            <li>License Support</li>
+          </ul>
+
+          <div class="buy-btn">Coming Soon</div>
+        </div>
+
+        <!-- Lifetime -->
+        <div class="price-card">
+          <div class="plan-name">Lifetime</div>
+          <div class="price">৳1,499</div>
+          <div class="duration">Lifetime License</div>
+
+          <ul class="features">
+            <li>Genuine My IDM License</li>
+            <li>Lifetime Validity</li>
+            <li>Download Manager Access</li>
+            <li>License Support</li>
+          </ul>
+
+          <div class="buy-btn">Coming Soon</div>
+        </div>
+
+      </div>
+
+      <div class="payment-note">
+        Secure payment options will be available soon.
+        <div class="payment-methods">
+          <span>bKash</span>
+          <span>Nagad</span>
+          <span>Visa</span>
+          <span>Mastercard</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="benefits">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Why Choose My IDM?</h2>
+        <p>Get a genuine license and enjoy your My IDM experience.</p>
+      </div>
+
+      <div class="benefit-grid">
+
+        <div class="benefit-card">
+          <div class="icon">🔐</div>
+          <h3>Genuine License</h3>
+          <p>Use a valid license key to activate your My IDM application.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="icon">⚡</div>
+          <h3>Easy Activation</h3>
+          <p>Activate your software using your purchased license key.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="icon">💬</div>
+          <h3>Customer Support</h3>
+          <p>Get assistance with license and activation-related issues.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>License FAQ</h2>
+        <p>Frequently asked questions about My IDM licenses.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <details>
+          <summary>How can I purchase a license?</summary>
+          <p>Online purchasing will be available after the payment system launches.</p>
+        </details>
+
+        <details>
+          <summary>How do I activate My IDM?</summary>
+          <p>After purchasing a license, you will receive a license key. Enter that key in the My IDM activation screen.</p>
+        </details>
+
+        <details>
+          <summary>How long is my license valid?</summary>
+          <p>Your license validity depends on the plan you purchase. Lifetime means lifetime validity under the published license terms.</p>
+        </details>
+
+        <details>
+          <summary>Can I use one license on multiple computers?</summary>
+          <p>Device limits will be specified in the final license terms before purchases open.</p>
+        </details>
+
+        <details>
+          <summary>Can I get a refund?</summary>
+          <p>Please review the official refund policy before purchasing. The final policy will be published here.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="container">
+    <div class="contact">
+      <h2>Need Help With My IDM?</h2>
+      <p>Visit our GitHub repository for project information and support.</p>
+      <a href="https://github.com/shenuinfo7/My-IDM" target="_blank" rel="noopener">
+        Visit GitHub
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-content">
+
+    <div>
+      <strong style="color:white;">My IDM</strong>
+      <div style="font-size:13px;">
+        © 2026 My IDM. All rights reserved.
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="./index.html">Home</a>
+      <a href="./index.html#features">Features</a>
+      <a href="./index.html#download">Download</a>
+      <a href="https://github.com/shenuinfo7/My-IDM">GitHub</a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
